@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.test_module_3.connection.ConnectionDB.getConnection;
@@ -17,7 +18,7 @@ public class DepartmentService implements IDepartment {
 
     @Override
     public List<Department> findAll() {
-        List<Department> departmentList = null;
+        List<Department> departmentList = new ArrayList<>();
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet rs = null;
@@ -28,7 +29,7 @@ public class DepartmentService implements IDepartment {
             rs = statement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String department = rs.getString("department");
+                String department = rs.getString("department_name");
                 departmentList.add(new Department(id, department));
             }
             connection.commit();
@@ -66,6 +67,7 @@ public class DepartmentService implements IDepartment {
             connection.setAutoCommit(false);
             statement = connection.prepareStatement(SELECT_DEPARTMENT_BY_ID);
             statement.setInt(1, id);
+
             rs = statement.executeQuery();
             while (rs.next()) {
                 String department_name = rs.getString("department");

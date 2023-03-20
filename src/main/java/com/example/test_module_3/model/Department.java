@@ -2,14 +2,14 @@ package com.example.test_module_3.model;
 
 public class Department {
     private int department_id;
-    private String department;
+    private String department_name;
 
     public Department() {
     }
 
-    public Department(int department_id, String department) {
+    public Department(int department_id, String department_name) {
         this.department_id = department_id;
-        this.department = department;
+        this.department_name = department_name;
     }
 
     public int getDepartment_id() {
@@ -21,10 +21,10 @@ public class Department {
     }
 
     public String getDepartment() {
-        return department;
+        return department_name;
     }
 
-    public void setDepartment(String department) {
-        this.department = department;
+    public void setDepartment(String department_name) {
+        this.department_name = department_name;
     }
 }

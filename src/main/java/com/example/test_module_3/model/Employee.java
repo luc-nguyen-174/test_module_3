@@ -13,6 +13,16 @@ public class Employee {
     public Employee() {
     }
 
+    public Employee(int id, String name, String email, String address, String phone, double salary, Department department) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phone = phone;
+        this.salary = salary;
+        this.department = department;
+    }
+
     public Employee(String name, String email, String address, String phone, double salary) {
         this.name = name;
         this.email = email;
